@@ -3,6 +3,7 @@ import numpy as np
 import streamlit as st
 import plotly_express as px
 import plotly.graph_objects as go
+import openpyxl
 
 
 # Set visualization options
