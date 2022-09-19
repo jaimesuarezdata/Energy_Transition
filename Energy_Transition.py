@@ -12,9 +12,9 @@ pd.set_option('display.width', 32000)
 # Data for GDP from https://data.worldbank.org/indicator/NY.GDP.MKTP.CD
 
 # Create the necessary dataframes: Production, Consumption and GDP
-df_consumption = pd.read_csv(r'https://github.com/jase311/Energy_Transition/blob/main/modern-renewable-energy-consumption.csv')
-df_production = pd.read_csv(r'https://github.com/jase311/Energy_Transition/blob/main/modern-renewable-prod.csv')
-df_gdp = pd.read_excel(r'https://github.com/jase311/Energy_Transition/blob/main/GDP%20year%20country.xlsx')
+df_consumption = pd.read_csv(r'https://github.com/jase311/Energy_Transition/blob/main/modern-renewable-energy-consumption.csv',on_bad_lines='skip')
+df_production = pd.read_csv(r'https://github.com/jase311/Energy_Transition/blob/main/modern-renewable-prod.csv',on_bad_lines='skip')
+df_gdp = pd.read_excel(r'https://github.com/jase311/Energy_Transition/blob/main/GDP%20year%20country.xlsx',on_bad_lines='skip')
 
 
 
