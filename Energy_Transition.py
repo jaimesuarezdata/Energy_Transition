@@ -16,7 +16,6 @@ df_consumption = pd.read_csv(r'https://github.com/jase311/Energy_Transition/blob
 df_production = pd.read_csv(r'https://github.com/jase311/Energy_Transition/blob/main/modern-renewable-prod.csv')
 df_gdp = pd.read_excel(r'https://github.com/jase311/Energy_Transition/blob/main/GDP%20year%20country.xlsx')
 
-https://github.com/jase311/Energy_Transition/blob/main/modern-renewable-prod.csv
 
 
 # Drop the unnecessary columns by name
