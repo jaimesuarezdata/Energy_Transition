@@ -6,7 +6,6 @@ import plotly.graph_objects as go
 import openpyxl
 
 
-
 # Set visualization options
 pd.set_option('display.max_columns',200)
 pd.set_option('display.width', 32000)
