@@ -4,7 +4,6 @@ import streamlit as st
 import plotly_express as px
 import plotly.graph_objects as go
 
-
 # Set visualization options
 pd.set_option('display.max_columns',200)
 pd.set_option('display.width', 32000)
