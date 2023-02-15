@@ -102,7 +102,7 @@ print(df2020)
 top_ten_countries=['United States', 'Brazil', 'Canada', 'India', 'Japan', 'Norway','United Kingdom','France','Italy']
 
 df_prodtrend = df_PCGDP
-df_prodtrend.drop(df_prodtrend.columns[[1,3,4,5,6,7,8,9,10,11,12]],axis=1,inplace=True)
+df_prodtrend.drop(df_prodtrend.columns[[1,3,4,5,6,11,12]],axis=1,inplace=True)
 df_prodtrend=df_prodtrend[~df_prodtrend['Country_Name'].isin(top_ten_countries)==False]
 print(df_prodtrend)
 
@@ -154,15 +154,15 @@ GDP_selected = round(df_selection['GDP MUSD'].sum()/1e6)
 left_column, middle_column,right_column = st.columns(3)
 
 with left_column:
-    st.subheader("Total Production:")
+    st.subheader("Total Production of selected countries:")
     st.subheader(f":zap: TWh {total_production:,}")
 
 with middle_column:
-    st.subheader("Part % in total production")
+    st.subheader("Selected countries part rate % in Top ten production")
     st.subheader(f" {part_production}")
 
 with right_column:
-    st.subheader("GDP Trillion USD")
+    st.subheader("Selected countries GDP in Trillion USD")
     st.subheader(f":heavy_dollar_sign: {GDP_selected}")
 
 
@@ -284,23 +284,28 @@ waterfall.update_layout(
     xaxis=(dict(showgrid=False)),
     yaxis=(dict(showgrid=False)),
     showlegend=False,
-    title="Total Energy production per source Twh"
+    title="Total Energy production by Technology in Twh"
 )
 
 
-fig_growth=px.line(df_selection2, x='Year', y="Total Production", color='Country_Name', labels={"Total Production":"Total Production in Twh"})
+source = st.sidebar.selectbox("Select the technology",["Total Production","Electricity Production from wind (TWh)","Electricity Production from hydro (TWh)",
+                                "Electricity Production from solar (TWh)","Electricity from other renewables including bioenergy (TWh)"
+                                ])
+
+fig_growth=px.line(df_selection2, x='Year', y=source, color='Country_Name', labels={"Total Production":"Total Production in Twh"})
 fig_growth.update_layout(
     plot_bgcolor="rgba(0,0,0,0)",
     xaxis=(dict(showgrid=False)),
     yaxis=(dict(showgrid=False)),
     showlegend=True,
-    title="Energy production per year"
+    title="Evolution of renewable energy production by Technology"
 )
 
 bottom_left,bottom_right = st.columns(2)
 
 bottom_left.plotly_chart(waterfall, use_container_width=True)
 bottom_right.plotly_chart(fig_growth,use_container_width=True)
+
 
 
 
