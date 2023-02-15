@@ -158,7 +158,7 @@ with left_column:
     st.subheader(f":zap: TWh {total_production:,}")
 
 with middle_column:
-    st.subheader("Selected countries part rate % in Top ten production")
+    st.subheader("Selected countries participation in production")
     st.subheader(f" {part_production}")
 
 with right_column:
