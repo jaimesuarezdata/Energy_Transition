@@ -284,7 +284,7 @@ waterfall.update_layout(
     xaxis=(dict(showgrid=False)),
     yaxis=(dict(showgrid=False)),
     showlegend=False,
-    title="Total Energy production by Technology in Twh"
+    title="<b>Total Energy production by Technology in Twh<b>"
 )
 
 
@@ -298,7 +298,7 @@ fig_growth.update_layout(
     xaxis=(dict(showgrid=False)),
     yaxis=(dict(showgrid=False)),
     showlegend=True,
-    title="Evolution of renewable energy production by Technology"
+    title="<b>Evolution of renewable energy production by Technology<b>"
 )
 
 bottom_left,bottom_right = st.columns(2)
@@ -306,10 +306,31 @@ bottom_left,bottom_right = st.columns(2)
 bottom_left.plotly_chart(waterfall, use_container_width=True)
 bottom_right.plotly_chart(fig_growth,use_container_width=True)
 
+st.markdown("---")
+
+
+df = pd.read_excel('locations.xlsx')
+
+df_f=pd.merge(df,df_selection, on='Country_Name', how='inner')
+
+
+fig_map = px.scatter_mapbox(df_f, lat='latitude', lon='longitude', size=source,
+                            color='Country_Name',zoom=1, mapbox_style='open-street-map',
+                            title="<b>Map of World Energy Production by Technology (TWh)<b>",
+                            size_max=30)
 
 
 
-#fig.show()
+last_section = st.plotly_chart(fig_map, use_container_width=True)
+
+st.markdown("---")
+
+'''Data From World Bank, IRENA and Kaggle'''
+
+
+#last_sectionl.plotly_chart(waterfall, use_container_width=True)
+#last_sectionr.plotly_chart(fig_growth, use_container_width=True)
+
 
 # ------DATAFRAME---------
 
