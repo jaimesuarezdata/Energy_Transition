@@ -14,7 +14,7 @@ pd.set_option('display.width', 32000)
 # Create the necessary dataframes: Production, Consumption and GDP
 df_consumption = pd.read_csv('modern-renewable-energy-consumption.csv')
 df_production = pd.read_csv('modern-renewable-prod.csv')
-df_gdp = pd.ExcelFile('GDP year country.xlsx',sheet_name='Data')
+df_gdp = pd.read_excel('GDP year country.xlsx',sheet_name='Data')
 
 # Drop the unnecessary columns by name
 df_gdp.drop(df_gdp.loc[:, '1960':'1999'].columns,axis=1, inplace=True)
