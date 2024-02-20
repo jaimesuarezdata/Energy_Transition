@@ -3,4 +3,4 @@ pandas==2.0.3
 plotly==5.8.0
 plotly-express==0.4.1
 streamlit==1.9.2
-openpyxl @ file:///tmp/build/80754af9/openpyxl_1615411699337/work
+openpyxl==1.0.1
