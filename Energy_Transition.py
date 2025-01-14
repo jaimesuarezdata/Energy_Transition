@@ -20,7 +20,7 @@ df_gdp = pd.read_excel('GDP year country.xlsx')
 #df_gdp = pd.read_excel(df_gdp,'Data')
 
 # Drop the unnecessary columns by name
-df_gdp.drop(df_gdp.loc[:, '1960':'1999'].columns,axis=1, inplace=True)
+df_gdp.drop(columns=df_gdp.loc[:, '1960':'1999'], inplace=True)
 # Drop the unnecessary columns by location
 df_gdp.drop(df_gdp.iloc[:, 26:].columns,axis=1, inplace=True)
 
